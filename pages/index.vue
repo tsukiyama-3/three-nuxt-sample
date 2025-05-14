@@ -1,5 +1,15 @@
+<script setup lang="ts">
+const container = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+  if (container.value === null) {
+    return;
+  }
+  const { init } = useBox(container as Ref<HTMLElement>);
+  init();
+});
+</script>
+
 <template>
-  <div>
-    <h1>Index</h1>
-  </div>
+  <div ref="container"></div>
 </template>
