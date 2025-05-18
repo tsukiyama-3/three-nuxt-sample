@@ -1,4 +1,8 @@
-import { MeshBasicMaterial, MeshLambertMaterial } from "three";
+import {
+  MeshBasicMaterial,
+  MeshLambertMaterial,
+  MeshPhongMaterial,
+} from "three";
 
 type Option = Partial<{
   color: number;
@@ -18,10 +22,21 @@ export const useMaterial = (option: Option = {}) => {
 export const useMeshLambertMaterial = (option: Option = {}) => {
   const mergedOption = {
     color: 0x3399ff,
-    ...option
-  }
+    ...option,
+  };
 
-  const material = new MeshLambertMaterial(mergedOption)
+  const material = new MeshLambertMaterial(mergedOption);
 
-  return { material }
-}
+  return { material };
+};
+
+export const useMeshPhongMaterial = (option: Option = {}) => {
+  const mergedOption = {
+    color: 0x3399ff,
+    ...option,
+  };
+
+  const material = new MeshPhongMaterial(mergedOption);
+
+  return { material };
+};

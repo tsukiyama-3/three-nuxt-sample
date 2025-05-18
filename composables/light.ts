@@ -1,4 +1,4 @@
-import { DirectionalLight, Vector3 } from "three";
+import { AmbientLight, DirectionalLight, Vector3 } from "three";
 
 type Option = Partial<{
   color: number;
@@ -21,4 +21,19 @@ export const useLight = (option: Option = {}) => {
   light.position.copy(mergedOption.position);
 
   return { light };
+};
+
+export const useAmbientLight = (option: Option = {}) => {
+  const mergedOption = {
+    color: 0xffffff,
+    intensity: 0.1,
+    ...option,
+  };
+
+  const ambientLight = new AmbientLight(
+    mergedOption.color,
+    mergedOption.intensity
+  );
+
+  return { ambientLight };
 };
