@@ -4,7 +4,6 @@ import { use008 } from "~/composables/section/1st";
 const container = ref<HTMLElement | null>(null);
 
 const { render, renderer, isKeydown } = use008();
-// const { width, height } = useWindowSize(container);
 
 onMounted(() => {
   if (container.value === null || renderer === undefined) {
